@@ -1,0 +1,97 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+body {
+  background-color: rgb(193, 221, 223);
+}
+
+.profile-card {
+  width: 60vw;
+  min-width:350px;
+  background: rgb(203, 255, 255);
+  border-radius: 2rem;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: auto;
+  margin-top: clamp(10dvh, 10dvh, 15dvh);
+
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  .image-container {
+    position: relative;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .background {
+    width: 100%;
+    height: 20rem;
+    object-fit: cover;
+    border-radius: 2rem;
+  }
+
+  .profile {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 10rem;
+    height: auto;
+    border-radius: 2rem;
+    border: 2px solid rgb(180, 211, 188);
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: scale(1.2);
+      transform: translate(-50%, -50%) scale(1.15);
+      cursor: pointer;
+    }
+  }
+
+  .content {
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 600;
+
+    h1{
+        font-size: clamp(1.5rem, 5vw + 0.75rem, 3rem);
+
+    }
+
+    p{
+       font-size: clamp(1rem, 2vw + 0.5rem, 1.25rem);
+ 
+    }
+  }
+
+  .button-group {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    justify-content: center;
+  }
+
+  button {
+    padding: 10px 10px;
+    background: #aae3a5;
+    border: none;
+    border-radius: 1.5rem;
+    cursor: pointer;
+    font-size: clamp(1rem, 2vw + 0.25rem, 1.25rem);
+    font-weight: 600;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: #ddb1a6;
+      transform: scale(1.1);
+    }
+  }
+}
