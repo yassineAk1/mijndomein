@@ -1,4 +1,4 @@
-import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
+//import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
 
 export default function(eleventyConfig) {
   // 1. Copy your stylesheet
@@ -6,5 +6,5 @@ export default function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("assets");
 
   // 2. Configure the image plugin
-  eleventyConfig.addPlugin(eleventyImageTransformPlugin);
+  //eleventyConfig.addPlugin(eleventyImageTransformPlugin);
 }
