@@ -10,7 +10,7 @@ import { site } from '~/data/site'
       </CodeTag>
 
       <div class="soon">
-        <p class="soon__status"><span class="soon__dot" aria-hidden="true" />Coming soon</p>
+        <p class="soon__status">Coming soon</p>
         <p class="soon__text">I’m putting together a selection of my work. Until then, you can find my code on GitHub.</p>
         <ExternalLink :href="site.github" class="button button--quiet">View GitHub</ExternalLink>
       </div>
@@ -33,9 +33,6 @@ import { site } from '~/data/site'
 }
 
 .soon__status {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
   padding: 0.3rem 0.85rem;
   border: 1px solid rgb(var(--accent-rgb) / 0.35);
   border-radius: 999px;
@@ -45,21 +42,6 @@ import { site } from '~/data/site'
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--accent);
-}
-
-/* A softly pulsing dot: "work in progress" */
-.soon__dot {
-  inline-size: 0.45rem;
-  block-size: 0.45rem;
-  border-radius: 50%;
-  background: var(--accent);
-  animation: pulse 2s ease-in-out infinite;
-}
-
-@keyframes pulse {
-  50% {
-    opacity: 0.3;
-  }
 }
 
 .soon__text {

@@ -26,7 +26,7 @@ export default defineNuxtConfig({
   app: {
     head: {
       htmlAttrs: { lang: 'en' },
-      title: 'Yassine Akka — Front-end Developer',
+      title: 'Yassine Akka Front-end Developer',
       meta: [
         { name: 'description', content: 'Portfolio of Yassine Akka, front-end developer based in Amsterdam.' },
         { name: 'theme-color', content: '#0c0d0f' },

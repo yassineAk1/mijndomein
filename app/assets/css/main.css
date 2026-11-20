@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Design tokens — the whole design is controlled from here
+   Design tokens: the whole design is controlled from here
    ========================================================================== */
 :root {
   /* Color: near-black base, one accent */
@@ -164,7 +164,7 @@ main:focus {
    Building blocks
    ========================================================================== */
 
-/* The grey <tags> around headings — decoration only */
+/* The grey <tags> around headings (decoration only) */
 .code-tag {
   display: block;
   font-family: var(--font-mono);
