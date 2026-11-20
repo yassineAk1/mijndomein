@@ -1,25 +1,19 @@
 {
   "name": "mijndomein",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/yassineAk1/mijndomein.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "description": "Portfolio of Yassine Akka, built with Nuxt. Live at yassineakka.nl",
   "type": "module",
-  "bugs": {
-    "url": "https://github.com/yassineAk1/mijndomein/issues"
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "npx serve .output/public --listen 4173",
+    "postinstall": "nuxt prepare"
   },
-  "homepage": "https://github.com/yassineAk1/mijndomein#readme",
   "dependencies": {
-    "@11ty/eleventy": "^3.1.6",
-    "@11ty/eleventy-img": "^6.0.4"
+    "@nuxt/fonts": "^1.2.0",
+    "nuxt": "^4.6.4",
+    "vue": "^3.5.45",
+    "vue-router": "^5.4.0"
   }
 }

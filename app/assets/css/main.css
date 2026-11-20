@@ -1,0 +1,274 @@
+/* ==========================================================================
+   Design tokens — the whole design is controlled from here
+   ========================================================================== */
+:root {
+  /* Color: near-black base, one accent */
+  --bg: #0c0d0f;
+  --surface: #131518;
+  --text: #ececec;
+  --text-soft: #c4c8cd;
+  --muted: #8f949b; /* 6.4:1 on --bg */
+  --faint: #7a8088; /* 4.9:1 on --bg: small secondary text, like the <tags> */
+  --dim: #50555c; /* non-text decoration only, like the empty dots */
+  --border: rgb(255 255 255 / 0.08);
+  --border-strong: rgb(255 255 255 / 0.16);
+
+  --accent-rgb: 68 235 238;
+  --accent: rgb(var(--accent-rgb));
+  --accent-hover: #8af5f6;
+  --on-accent: #041214;
+
+  /* Type */
+  --font-display: 'Saira Condensed', 'Arial Narrow', sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, Consolas, monospace;
+
+  --step--2: 0.75rem;
+  --step--1: clamp(0.84rem, 0.82rem + 0.1vw, 0.9rem);
+  --step-0: clamp(1rem, 0.97rem + 0.15vw, 1.075rem);
+  --step-1: clamp(1.15rem, 1.06rem + 0.45vw, 1.35rem);
+  --step-2: clamp(1.6rem, 1.3rem + 1.4vw, 2.4rem);
+  --step-3: clamp(2.5rem, 1.7rem + 3.6vw, 4.5rem);
+  --step-4: clamp(2.75rem, 1.5rem + 5.2vw, 6rem);
+  --tracking-display: 0.08em;
+
+  /* Space */
+  --sidebar-width: 11rem;
+  --topbar-height: 3.75rem;
+  --gutter: clamp(1.25rem, 5vw, 4.5rem);
+  --space-section: clamp(5.5rem, 12vw, 9rem);
+  --max-width: 66rem;
+  --radius: 6px;
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+
+  color-scheme: dark;
+
+  /* Lets height animate to "auto" (used for the project details) */
+  interpolate-size: allow-keywords;
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--topbar-height);
+  -webkit-text-size-adjust: 100%;
+}
+
+@media (min-width: 60rem) {
+  html {
+    scroll-padding-top: 0;
+  }
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: var(--step-0);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-display);
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* ==========================================================================
+   Layout
+   ========================================================================== */
+@media (min-width: 60rem) {
+  .content {
+    margin-left: var(--sidebar-width);
+  }
+}
+
+main:focus {
+  outline: none;
+}
+
+.container {
+  width: min(100% - 2 * var(--gutter), var(--max-width));
+  margin-inline: auto;
+}
+
+.section {
+  padding-block: var(--space-section);
+  border-top: 1px solid var(--border);
+}
+
+.section-head {
+  margin-bottom: clamp(3rem, 7vw, 5rem);
+}
+
+/* Heading on the left, content on the right (stacked on small screens) */
+.two-col {
+  display: grid;
+  gap: 1.5rem 4rem;
+}
+
+@media (min-width: 72rem) {
+  .two-col {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    align-items: start;
+  }
+
+  .two-col--end {
+    align-items: end;
+  }
+}
+
+.section-title {
+  font-size: var(--step-3);
+}
+
+/* ==========================================================================
+   Building blocks
+   ========================================================================== */
+
+/* The grey <tags> around headings — decoration only */
+.code-tag {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  line-height: 1.6;
+  color: var(--faint);
+  user-select: none;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  min-block-size: 3rem;
+  padding: 0.6rem 1.6rem;
+  border: 1px solid var(--accent);
+  border-radius: var(--radius);
+  color: var(--text);
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  line-height: 1.2;
+  text-decoration: none;
+  transition:
+    background-color 0.2s,
+    border-color 0.2s,
+    color 0.2s;
+}
+
+.button:hover {
+  background: rgb(var(--accent-rgb) / 0.1);
+}
+
+.button--primary {
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+.button--primary:hover {
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
+}
+
+.button--quiet {
+  border-color: var(--border-strong);
+}
+
+.button--quiet:hover {
+  border-color: var(--accent);
+  background: transparent;
+  color: var(--accent);
+}
+
+.skip-link {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 100;
+  padding: 0.6rem 1rem;
+  border-radius: var(--radius);
+  background: var(--accent);
+  color: var(--on-accent);
+  font-weight: 600;
+  text-decoration: none;
+  transform: translateY(-200%);
+}
+
+.skip-link:focus {
+  transform: none;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+}
+
+/* ==========================================================================
+   Reduced motion
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
